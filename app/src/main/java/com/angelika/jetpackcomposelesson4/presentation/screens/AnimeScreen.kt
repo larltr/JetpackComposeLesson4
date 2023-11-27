@@ -36,10 +36,9 @@ import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor3
 import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor4
 
 @Composable
-fun UserInfo(modifier: Modifier) {
+fun UserInfo(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .fillMaxWidth()
     ) {
         Row {
             Image(
@@ -79,16 +78,13 @@ fun UserInfo(modifier: Modifier) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Search(modifier: Modifier) {
+fun Search(modifier: Modifier = Modifier) {
     var text by remember {
         mutableStateOf("")
     }
 
     TextField(
-        modifier = modifier
-            .padding(top = 20.dp)
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(10.dp)),
+        modifier = modifier,
         value = text,
         onValueChange = { newText ->
             text = newText
@@ -121,7 +117,7 @@ fun Search(modifier: Modifier) {
 }
 
 @Composable
-fun TheBestAnime(modifier: Modifier) {
+fun TheBestAnime(modifier: Modifier = Modifier) {
     Text(
         modifier = modifier,
         text = stringResource(R.string.text_the_best_anime),

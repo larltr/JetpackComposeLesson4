@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -37,19 +38,21 @@ import com.angelika.jetpackcomposelesson4.ui.theme.Yellow
 import com.angelika.jetpackcomposelesson4.ui.theme.transparentBlack
 
 @Composable
-fun AnimeListColumn(viewModel: AnimeListViewModel = hiltViewModel()) {
+fun AnimeListColumn(modifier: Modifier = Modifier,viewModel: AnimeListViewModel = hiltViewModel()) {
 
     val stateData = viewModel.animeState.collectAsState()
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(KitsuColor1)
-            .padding(14.dp)
+        modifier = modifier
     ) {
         Column(modifier = Modifier.padding(top = 20.dp)) {
-            UserInfo(modifier = Modifier)
-            Search(modifier = Modifier)
+            UserInfo(modifier = Modifier.fillMaxWidth())
+            Search(
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(10.dp))
+            )
             TheBestAnime(modifier = Modifier.padding(10.dp))
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(140.dp),
@@ -57,7 +60,11 @@ fun AnimeListColumn(viewModel: AnimeListViewModel = hiltViewModel()) {
                 verticalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 items(stateData.value) { anime ->
-                    AnimeItem(anime = anime)
+                    AnimeItem(
+                        anime = anime, modifier = Modifier
+                            .clip(shape = RoundedCornerShape(15.dp))
+                            .size(height = 180.dp, width = 140.dp)
+                    )
                 }
             }
         }
@@ -67,9 +74,7 @@ fun AnimeListColumn(viewModel: AnimeListViewModel = hiltViewModel()) {
 @Composable
 fun AnimeItem(modifier: Modifier = Modifier, anime: KitsuModel) {
     Box(
-        modifier
-            .clip(shape = RoundedCornerShape(15.dp))
-            .size(height = 180.dp, width = 140.dp)
+        modifier = modifier
     ) {
         AsyncImage(
             contentScale = ContentScale.Crop,
