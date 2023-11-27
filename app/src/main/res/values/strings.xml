@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">JetpackComposeLesson4</string>
-    <string name="content_description_image_penguin">Картинка пингвина</string>
+    <string name="content_description_user_image">Аватарка пользователя </string>
     <string name="text_welcome_back">Welcome back</string>
-    <string name="content_description_notifications">Уведомления</string>
+        <string name="content_description_notifications">Уведомления</string>
     <string name="content_description_search_icon">Иконка поиска\n</string>
     <string name="content_description_filter_icon">Иконка фильтрации\n</string>
     <string name="text_search">Search</string>
@@ -11,4 +11,5 @@
     <string name="text_the_best_anime">The best anime</string>
     <string name="content_description_location_image">location image</string>
     <string name="content_description_icon_rating_anime">Иконка рейтинга аниме</string>
+    <string name="content_description_image_anime">Картинка Аниме</string>
 </resources>

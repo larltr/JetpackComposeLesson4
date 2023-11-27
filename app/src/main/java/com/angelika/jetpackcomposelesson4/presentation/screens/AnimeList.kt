@@ -32,13 +32,12 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.angelika.jetpackcomposelesson4.R
 import com.angelika.jetpackcomposelesson4.models.KitsuModel
-import com.angelika.jetpackcomposelesson4.presentation.activity.ActivityViewModel
 import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor1
 import com.angelika.jetpackcomposelesson4.ui.theme.Yellow
 import com.angelika.jetpackcomposelesson4.ui.theme.transparentBlack
 
 @Composable
-fun AnimeListColumn(viewModel: ActivityViewModel = hiltViewModel()) {
+fun AnimeListColumn(viewModel: AnimeListViewModel = hiltViewModel()) {
 
     val stateData = viewModel.animeState.collectAsState()
 
@@ -52,7 +51,6 @@ fun AnimeListColumn(viewModel: ActivityViewModel = hiltViewModel()) {
             UserInfo(modifier = Modifier)
             Search(modifier = Modifier)
             TheBestAnime(modifier = Modifier.padding(10.dp))
-
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(140.dp),
                 horizontalArrangement = Arrangement.spacedBy(20.dp),
@@ -72,15 +70,13 @@ fun AnimeItem(modifier: Modifier = Modifier, anime: KitsuModel) {
         modifier
             .clip(shape = RoundedCornerShape(15.dp))
             .size(height = 180.dp, width = 140.dp)
-            .background(Color.Black)
     ) {
         AsyncImage(
-            modifier = Modifier,
             contentScale = ContentScale.Crop,
             model = ImageRequest.Builder(LocalContext.current)
-                .data(anime.attributes.posterImage.small)
+                .data(anime.attributes.posterImage.large)
                 .crossfade(true).build(),
-            contentDescription = "image",
+            contentDescription = stringResource(R.string.content_description_image_anime),
             placeholder = painterResource(
                 id = R.drawable.image_not_found,
             ),
@@ -117,7 +113,6 @@ fun AnimeItem(modifier: Modifier = Modifier, anime: KitsuModel) {
 
             ) {
             Text(
-                modifier = Modifier,
                 text = anime.attributes.title.enJp,
                 color = Color.White,
                 fontSize = 14.sp

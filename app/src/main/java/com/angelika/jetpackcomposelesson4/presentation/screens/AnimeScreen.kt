@@ -43,26 +43,25 @@ fun UserInfo(modifier: Modifier) {
     ) {
         Row {
             Image(
-                modifier = modifier
+                modifier = Modifier
                     .width(60.dp)
                     .height(60.dp)
                     .clip(CircleShape),
                 painter = painterResource(id = R.drawable.image_no_name),
-                contentDescription = stringResource(R.string.content_description_image_penguin),
+                contentDescription = stringResource(R.string.content_description_user_image),
                 contentScale = ContentScale.Crop
             )
             Column(
-                modifier = modifier
+                modifier = Modifier
                     .padding(top = 2.dp, start = 6.dp)
             ) {
                 Text(
-                    modifier = modifier,
                     text = stringResource(R.string.text_welcome_back),
                     color = KitsuColor2,
                     fontSize = 12.sp
                 )
                 Text(
-                    modifier = modifier.padding(top = 4.dp),
+                    modifier = Modifier.padding(top = 4.dp),
                     text = stringResource(R.string.user_name_li5_47),
                     color = Color.White,
                     fontSize = 16.sp
@@ -70,7 +69,7 @@ fun UserInfo(modifier: Modifier) {
             }
         }
         Image(
-            modifier = modifier
+            modifier = Modifier
                 .align(Alignment.CenterEnd),
             painter = painterResource(id = R.drawable.image_bell),
             contentDescription = stringResource(R.string.content_description_notifications),
