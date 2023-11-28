@@ -4,12 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -31,9 +29,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.angelika.jetpackcomposelesson4.R
 import com.angelika.jetpackcomposelesson4.ui.theme.Grey
-import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor2
-import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor3
-import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor4
+import com.angelika.jetpackcomposelesson4.ui.theme.Orange
+import com.angelika.jetpackcomposelesson4.ui.theme.Light
+import com.angelika.jetpackcomposelesson4.ui.theme.DarkBurgundy
 
 @Composable
 fun UserInfo(modifier: Modifier = Modifier) {
@@ -56,7 +54,7 @@ fun UserInfo(modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = stringResource(R.string.text_welcome_back),
-                    color = KitsuColor2,
+                    color = Orange,
                     fontSize = 12.sp
                 )
                 Text(
@@ -91,8 +89,8 @@ fun Search(modifier: Modifier = Modifier) {
         },
         colors = TextFieldDefaults.textFieldColors(
             textColor = Color.White,
-            unfocusedIndicatorColor = KitsuColor4,
-            containerColor = KitsuColor4
+            unfocusedIndicatorColor = DarkBurgundy,
+            containerColor = DarkBurgundy
         ),
         leadingIcon = {
             Icon(
@@ -100,11 +98,11 @@ fun Search(modifier: Modifier = Modifier) {
                 contentDescription = stringResource(
                     R.string.content_description_search_icon
                 ),
-                tint = KitsuColor3
+                tint = Light
             )
         },
         label = {
-            Text(text = stringResource(R.string.search_kitsu), color = KitsuColor3)
+            Text(text = stringResource(R.string.search_kitsu), color = Light)
         },
         trailingIcon = {
             Icon(

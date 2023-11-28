@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.angelika.jetpackcomposelesson4.presentation.screens.AnimeListColumn
 import com.angelika.jetpackcomposelesson4.ui.theme.JetpackComposeLesson4Theme
-import com.angelika.jetpackcomposelesson4.ui.theme.KitsuColor1
+import com.angelika.jetpackcomposelesson4.ui.theme.LightBurgundy
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     AnimeListColumn(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(KitsuColor1)
+                            .background(LightBurgundy)
                             .padding(14.dp)
                     )
                 }
@@ -46,7 +46,7 @@ fun GreetingPreview() {
         AnimeListColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(KitsuColor1)
+                .background(LightBurgundy)
                 .padding(14.dp)
         )
     }
